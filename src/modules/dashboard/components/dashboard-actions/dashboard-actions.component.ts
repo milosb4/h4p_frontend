@@ -10,13 +10,15 @@ export class DashboardActionsComponent implements OnInit {
     constructor() {}
 
     slides = [
-        { img: 'https://via.placeholder.com/600.png/09f/fff' },
-        { img: 'https://via.placeholder.com/600.png/021/fff' },
-        { img: 'https://via.placeholder.com/600.png/321/fff' },
-        { img: 'https://via.placeholder.com/600.png/422/fff' },
-        { img: 'https://via.placeholder.com/600.png/654/fff' },
+        { img: 'assets/img/popust1.png' },
+        { img: 'assets/img/popust2.png' },
+        { img: 'assets/img/popust3.png' },
+        { img: 'assets/img/popust4.png' },
+        { img: 'assets/img/popust5.png' },
+        { img: 'assets/img/popust6.png' },
+        { img: 'assets/img/popust7.png' },
     ];
-    slideConfig = { slidesToShow: 4, slidesToScroll: 4 };
+    slideConfig = { slidesToShow: 3, slidesToScroll: 4 };
 
     ngOnInit(): void {}
 
