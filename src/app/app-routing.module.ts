@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AuthGuard } from '../services/guard/auth.guard';
+
 const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
         redirectTo: '/dashboard',
+    },
+    {
+        path: 'login',
+        loadChildren: () =>
+            import('modules/auth/auth-routing.module').then(m => m.AuthRoutingModule),
     },
     {
         path: 'charts',
@@ -14,9 +21,24 @@ const routes: Routes = [
     },
     {
         path: 'dashboard',
+        // canActivate: [AuthGuard],
         loadChildren: () =>
             import('modules/dashboard/dashboard-routing.module').then(
                 m => m.DashboardRoutingModule
+            ),
+    },
+    {
+        path: 'discounts',
+        loadChildren: () =>
+            import('modules/discounts/discounts-routing.module').then(
+                m => m.DiscountsRoutingModule
+            ),
+    },
+    {
+        path: 'budget',
+        loadChildren: () =>
+            import('modules/budget/budget-routing.module').then(
+                m => m.BudgetRoutingModule
             ),
     },
     {

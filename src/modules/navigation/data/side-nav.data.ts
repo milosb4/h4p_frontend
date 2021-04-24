@@ -25,7 +25,7 @@ export const sideNavItems: SideNavItems = {
     pages: {
         icon: 'book-open',
         text: 'Budžet',
-        link: 'Discounts',
+        link: '/budget',
     },
     charts: {
         icon: 'chart-area',

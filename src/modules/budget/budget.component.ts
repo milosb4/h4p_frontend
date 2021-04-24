@@ -5,11 +5,11 @@ import { CountryService } from '@modules/tables/services';
 import { Observable } from 'rxjs';
 
 @Component({
-    selector: 'sb-discounts',
-    templateUrl: './discounts.component.html',
-    styleUrls: ['./discounts.component.scss'],
+  selector: 'sb-budget',
+  templateUrl: './budget.component.html',
+  styleUrls: ['./budget.component.scss']
 })
-export class DiscountsComponent implements OnInit {
+export class BudgetComponent implements OnInit {
     @Input() pageSize = 4;
 
     countries$!: Observable<Country[]>;
@@ -36,4 +36,5 @@ export class DiscountsComponent implements OnInit {
         this.countryService.sortDirection = direction;
         this.changeDetectorRef.detectChanges();
     }
+
 }

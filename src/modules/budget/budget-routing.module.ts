@@ -1,28 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DiscountsComponent } from '@modules/discounts/discounts.component';
-import { DiscountsModule } from '@modules/discounts/discounts.module';
+import { BudgetComponent } from '@modules/budget/budget.component';
+import { BudgetModule } from '@modules/budget/budget.module';
 import { SBRouteData } from '@modules/navigation/models';
 
 export const ROUTES: Routes = [
     {
         path: '',
         data: {
-            title: 'Discounts',
+            title: 'Budget',
             breadcrumbs: [
                 {
-                    text: 'Discounts',
+                    text: 'Budget',
                     active: true,
                 },
             ],
         } as SBRouteData,
         canActivate: [],
-        component: DiscountsComponent,
+        component: BudgetComponent,
     },
 ];
 
 @NgModule({
-    imports: [DiscountsModule, RouterModule.forChild(ROUTES)],
+    imports: [BudgetModule, RouterModule.forChild(ROUTES)],
     exports: [RouterModule],
 })
-export class DiscountsRoutingModule {}
+export class BudgetRoutingModule {}

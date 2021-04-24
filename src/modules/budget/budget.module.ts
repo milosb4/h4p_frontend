@@ -3,13 +3,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppCommonModule } from '@common/app-common.module';
+import { BudgetComponent } from '@modules/budget/budget.component';
+import { BudgetService } from '@modules/budget/services/budget.service';
 import { ChartsModule } from '@modules/charts/charts.module';
-import { DiscountsComponent } from '@modules/discounts/discounts.component';
-import { DiscountsService } from '@modules/discounts/services/discounts.service';
 import { NavigationModule } from '@modules/navigation/navigation.module';
 import { TablesModule } from '@modules/tables/tables.module';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-
 @NgModule({
     imports: [
         CommonModule,
@@ -22,8 +21,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
         TablesModule,
         SlickCarouselModule,
     ],
-    providers: [DiscountsService],
-    declarations: [DiscountsComponent],
-    exports: [DiscountsComponent],
+    providers: [BudgetService],
+    declarations: [BudgetComponent],
+    exports: [BudgetComponent],
 })
-export class DiscountsModule {}
+export class BudgetModule {}
