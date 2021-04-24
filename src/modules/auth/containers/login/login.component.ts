@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { AuthService } from '../../../../services/auth.service';
 
 @Component({
@@ -8,6 +9,7 @@ import { AuthService } from '../../../../services/auth.service';
     changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './login.component.html',
     styleUrls: ['login.component.scss'],
+    providers: [AuthService],
 })
 export class LoginComponent implements OnInit {
     // @ts-ignore
@@ -33,30 +35,13 @@ export class LoginComponent implements OnInit {
         // Get the credentials
         const credentials = this.signInForm.value;
         const creds = {
-            username: this.signInForm.value.username,
+            email: this.signInForm.value.username,
             password: this.signInForm.value.password,
         };
-        // Sign in
-        this._authService.login(creds).subscribe((x) => {
-                        let redirectURL = '';
-                redirectURL =
-                    x === 'admin'
-                        ? '/employee'
-                        : (redirectURL = x === 'employee' ? '/' : '/employee');
-                debugger;
-                // routing file and we don't have to touch here.
 
-
-                        // Navigate to the redirect url
-                this._router.navigateByUrl(redirectURL);
-            },
-            response => {
-                const a = response;
-                // debugger;
-
-                // Re-enable the form
-                this.signInForm.enable();
-            }
-        );
+        this._authService.signIn(creds).subscribe(response => {
+            this._authService.setAuthToken(response.token);
+            this._router.navigateByUrl('/');
+        });
     }
 }
