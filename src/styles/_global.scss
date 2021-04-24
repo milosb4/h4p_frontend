@@ -13,6 +13,18 @@ body {
 h1,
 p{color: #1B1717 !important;}
 
+.btn-primary{
+    background: #810000 !important;
+    color: white !important;
+    min-width: 200px !important;
+    max-width: 200px !important;
+    border: none;
+}
+
+.btn-primary:hover{
+    background: #BC1010 !important;
+
+}
 
 .btn-link:hover {
     color: #810000 !important;
@@ -345,3 +357,15 @@ color: #1B1717;
     background: transparent !important;
     border: none;
 }
+sb-login .red-logo-background{
+    display: none !important;
+}
+.custom-login label{
+    color: #16181b;
+}
+.custom-login img{
+    width: 200px;
+    margin: 0 auto;
+}
+
+
