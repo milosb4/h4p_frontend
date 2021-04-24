@@ -8,6 +8,7 @@ import { BudgetService } from '@modules/budget/services/budget.service';
 import { ChartsModule } from '@modules/charts/charts.module';
 import { NavigationModule } from '@modules/navigation/navigation.module';
 import { TablesModule } from '@modules/tables/tables.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 @NgModule({
     imports: [
@@ -20,6 +21,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
         ChartsModule,
         TablesModule,
         SlickCarouselModule,
+        NgbModule,
     ],
     providers: [BudgetService],
     declarations: [BudgetComponent],

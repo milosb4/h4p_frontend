@@ -1,13 +1,20 @@
-import { ChangeDetectorRef, Component, Input, OnInit, QueryList, ViewChildren } from '@angular/core';
+import {
+    ChangeDetectorRef,
+    Component,
+    Input,
+    OnInit,
+    QueryList,
+    ViewChildren,
+} from '@angular/core';
 import { SBSortableHeaderDirective, SortEvent } from '@modules/tables/directives';
 import { Country } from '@modules/tables/models';
 import { CountryService } from '@modules/tables/services';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'sb-budget',
-  templateUrl: './budget.component.html',
-  styleUrls: ['./budget.component.scss']
+    selector: 'sb-budget',
+    templateUrl: './budget.component.html',
+    styleUrls: ['./budget.component.scss'],
 })
 export class BudgetComponent implements OnInit {
     @Input() pageSize = 4;
@@ -17,11 +24,22 @@ export class BudgetComponent implements OnInit {
     sortedColumn!: string;
     sortedDirection!: string;
 
+    name = 'Angular';
+    page = 1;
+    // @ts-ignore
+    pageSize = 10;
+    items = [];
+
     @ViewChildren(SBSortableHeaderDirective) headers!: QueryList<SBSortableHeaderDirective>;
     constructor(
         public countryService: CountryService,
         private changeDetectorRef: ChangeDetectorRef
-    ) {}
+    ) {
+        for (let i = 1; i <= 6; i++) {
+            // @ts-ignore
+            this.items.push({ Name: i });
+        }
+    }
 
     ngOnInit() {
         this.countryService.pageSize = this.pageSize;
@@ -35,6 +53,5 @@ export class BudgetComponent implements OnInit {
         this.countryService.sortColumn = column;
         this.countryService.sortDirection = direction;
         this.changeDetectorRef.detectChanges();
-    }
-
+    };
 }
