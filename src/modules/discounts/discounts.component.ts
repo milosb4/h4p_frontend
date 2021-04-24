@@ -17,11 +17,22 @@ export class DiscountsComponent implements OnInit {
     sortedColumn!: string;
     sortedDirection!: string;
 
+    name = 'Angular';
+    page = 1;
+    // @ts-ignore
+    pageSize = 10;
+    items = [];
+
     @ViewChildren(SBSortableHeaderDirective) headers!: QueryList<SBSortableHeaderDirective>;
     constructor(
         public countryService: CountryService,
         private changeDetectorRef: ChangeDetectorRef
-    ) {}
+    ) {
+        for (let i = 1; i <= 6; i++) {
+            // @ts-ignore
+            this.items.push({ Name: i });
+        }
+    }
 
     ngOnInit() {
         this.countryService.pageSize = this.pageSize;

@@ -8,6 +8,7 @@ import { DiscountsComponent } from '@modules/discounts/discounts.component';
 import { DiscountsService } from '@modules/discounts/services/discounts.service';
 import { NavigationModule } from '@modules/navigation/navigation.module';
 import { TablesModule } from '@modules/tables/tables.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
@@ -21,6 +22,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
         ChartsModule,
         TablesModule,
         SlickCarouselModule,
+        NgbModule
     ],
     providers: [DiscountsService],
     declarations: [DiscountsComponent],
