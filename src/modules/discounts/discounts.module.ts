@@ -22,7 +22,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
         ChartsModule,
         TablesModule,
         SlickCarouselModule,
-        NgbModule
+        NgbModule,
     ],
     providers: [DiscountsService],
     declarations: [DiscountsComponent],
