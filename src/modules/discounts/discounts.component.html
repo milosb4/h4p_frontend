@@ -1,10 +1,12 @@
 <sb-layout-dashboard>
-    <div class="container">
+    <div class="container discounts-container">
+        <h1>Popusti</h1>
+        <img class='navigation-bacground-img' src='assets/img/wave.png'>
         <div class="row">
-            <div class="col-md-6 mx-auto my-5" *ngFor="let item of items | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
-                <div class="card">
+            <div class="col-md-6 mx-auto my-5 discount-cards-row" *ngFor="let item of items | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+                <div class="card card-discount">
                     <div class="card-body">
-
+                        <img src='assets/img/popust4.png'>
                     </div>
                 </div>
             </div>

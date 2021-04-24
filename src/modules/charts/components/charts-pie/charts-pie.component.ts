@@ -29,7 +29,7 @@ export class ChartsPieComponent implements OnInit, AfterViewInit {
                 datasets: [
                     {
                         data: [12.21, 15.58, 11.25, 8.32],
-                        backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+                        backgroundColor: ['#5E0808', '#830B0B', '#AA0E0E', '#D01111'],
                     },
                 ],
             },

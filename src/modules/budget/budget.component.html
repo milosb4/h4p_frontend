@@ -1,9 +1,11 @@
 <sb-layout-dashboard>
-    <div class='row'>
+    <div class='row l-card'>
         <div class='col-md-6'>
-            <img src='assets/img/popust1.png'>
+            <img class='l-card-img' src='assets/img/kartica.png'>
         </div>
         <div class='col-md-6'></div>
+        <img class='navigation-bacground-img' src='assets/img/wave.png'>
+
     </div>
     <div class='row'>
 
@@ -59,12 +61,12 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-lg-6">
+    <div class="row custom-pie-chart">
+        <div class="col-lg-12">
             <sb-card>
                 <div class="card-header"><fa-icon class="mr-1" [icon]='["fas", "chart-pie"]'></fa-icon>Pie Chart Example</div>
                 <div class="card-body"><sb-charts-pie></sb-charts-pie></div>
-                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div></sb-card>
+            </sb-card>
         </div>
     </div>
 </sb-layout-dashboard>

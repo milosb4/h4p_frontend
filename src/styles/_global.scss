@@ -7,6 +7,7 @@ body {
 
 *{
     font-family: Roboto;
+    z-index: 1;
 }
 
 h1,
@@ -24,19 +25,16 @@ p{color: #1B1717 !important;}
 .bg-primary {
     background-color: transparent !important;
 }
-// Set spacing on containers for page symmetry
-
-//.row {
-//     margin-right: 0;
-//margin-left: 0;
-//}
 
 .container,
 .container-fluid {
 padding: 70px 30px 100px 30px !important;
 }
-
-
+#layoutSidenav_content {
+    padding-left: 225px;
+    margin-top: 56px;
+    overflow: hidden;
+}
 
 .custom-logo{
     width: 150px;
@@ -63,8 +61,8 @@ padding: 70px 30px 100px 30px !important;
 }
 
 .sb-sidenav-dark .sb-sidenav-menu .nav-link:hover{
-    color: #D1D1D1 !important;
-   font-weight: bold;
+    color: #3D0000 !important;
+
 }
 
 .sb-nav-fixed .sb-topnav {
@@ -99,7 +97,7 @@ nav .dropdown-divider {
    display: none;
 }
 .navbar-expand .navbar-nav .dropdown-menu {
-    transform: translate(-200px, 46px) !important;
+    transform: translate(-100px, 46px) !important;
     border-bottom-left-radius: 25px !important;
     border-bottom-right-radius: 0px !important;
     border-top-left-radius: 0px !important;
@@ -109,7 +107,12 @@ nav .dropdown-divider {
     -moz-box-shadow: 0px 0px 20px -5px rgba(27,23,23,0.8);
     box-shadow: 0px 0px 20px -5px rgba(27,23,23,0.8);
 }
-
+.navbar-dark #sidebarToggle {
+    color: #810000 !important;
+}
+.navbar-dark #sidebarToggle:hover {
+    color: #E11414 !important;
+}
 
 //cards
 .custom-card {
@@ -264,4 +267,81 @@ footer a:hover{
     width: 550px;
     transform: rotate(-9deg);
     z-index: -1;
+}
+
+.navigation-bacground-img{
+    position: absolute;
+    top: -140px;
+    width: 1920px;
+    right: -53px;
+    transform: rotate(
+            5deg
+    );
+    z-index: 0;
+}
+
+//discount
+.card-discount{
+    border-radius: 20px !important;
+}
+
+.card-discount .card-body{
+    padding: 0 !important;
+    justify-content: center !important;
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 20px !important;
+    display: flex;
+    align-items: center;
+    overflow:hidden;
+}
+.card-discount .card-body img{
+    width: 100%;
+}
+.discounts-container{
+    padding: 0 !important;
+}
+
+.discount-cards-row{
+    margin: 0 0 20px 0 !important;
+
+}
+
+.discounts-container .pagination{
+    justify-content: center;
+    padding-bottom: 40px;
+}
+.discounts-container h1{
+    margin-bottom: 40px;
+}
+.heart-icon svg{
+    width: 25px;
+    margin-right: 5px;
+}
+
+.heart-icon{
+    color: #810000;
+
+}
+.heart-icon:hover{
+    text-decoration: none;
+    color: #BC1010;
+    cursor: pointer;
+}
+.l-card-img{
+    width: 400px;
+border-radius: 20px;
+border-radius: 20px;
+}
+.l-card{
+    margin-bottom: 40px;
+}
+.form-inline {
+color: #1B1717;
+
+}
+
+.custom-pie-chart .card{
+    background: transparent !important;
+    border: none;
 }
