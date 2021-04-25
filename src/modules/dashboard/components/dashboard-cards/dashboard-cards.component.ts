@@ -34,6 +34,7 @@ export class DashboardCardsComponent implements OnInit {
             // @ts-ignore
             this.lastTokenIncome = x.lastIncome;
             // @ts-ignore
+
             this.lastTransactions = x.lastTransaction;
             this.cdr.detectChanges();
         })

@@ -6,8 +6,8 @@
             <thead>
             <tr>
                 <th scope="col" sbSortable="id" (sort)="onSort($event)"><span>Id</span><sb-sort-icon *ngIf='sortedColumn === "id"' [direction]="sortedDirection"></sb-sort-icon></th>
-                <th scope="col" sbSortable="name" (sort)="onSort($event)"><span>Amount</span><sb-sort-icon *ngIf='sortedColumn === "amount"' [direction]="sortedDirection"></sb-sort-icon></th>
-                <th scope="col" sbSortable="name" (sort)="onSort($event)"><span>Date</span><sb-sort-icon *ngIf='sortedColumn === "date"' [direction]="sortedDirection"></sb-sort-icon></th>
+                <th scope="col" sbSortable="amount" (sort)="onSort($event)"><span>Amount</span><sb-sort-icon *ngIf='sortedColumn === "amount"' [direction]="sortedDirection"></sb-sort-icon></th>
+                <th scope="col" sbSortable="date" (sort)="onSort($event)"><span>Date</span><sb-sort-icon *ngIf='sortedColumn === "date"' [direction]="sortedDirection"></sb-sort-icon></th>
             </tr>
             </thead>
             <tbody>
