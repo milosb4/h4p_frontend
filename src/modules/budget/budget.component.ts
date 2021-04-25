@@ -1,17 +1,18 @@
 import {
     AfterViewInit,
     ChangeDetectorRef,
-    Component, ElementRef,
+    Component,ElementRef,
     Input,
     OnInit,
     QueryList, ViewChild,
     ViewChildren,
 } from '@angular/core';
+import { DashboardService } from '@modules/dashboard/services';
 import { SBSortableHeaderDirective, SortEvent } from '@modules/tables/directives';
 import { Country } from '@modules/tables/models';
 import { CountryService } from '@modules/tables/services';
 import { Chart } from 'chart.js';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Component({
     selector: 'sb-budget',
@@ -44,7 +45,8 @@ export class BudgetComponent implements OnInit, AfterViewInit {
     @ViewChildren(SBSortableHeaderDirective) headers!: QueryList<SBSortableHeaderDirective>;
     constructor(
         public countryService: CountryService,
-        private changeDetectorRef: ChangeDetectorRef
+        private changeDetectorRef: ChangeDetectorRef,
+        private dashboardService: DashboardService
     ) {
         for (let i = 1; i <= 6; i++) {
             // @ts-ignore
@@ -54,6 +56,7 @@ export class BudgetComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
         this.countryService.pageSize = this.pageSize;
+        this.setStats();
         this.countries$ = this.countryService.countries$;
         this.total$ = this.countryService.total$;
     }
@@ -208,4 +211,12 @@ export class BudgetComponent implements OnInit, AfterViewInit {
         this.countryService.sortDirection = direction;
         this.changeDetectorRef.detectChanges();
     };
+
+    setStats() {
+        this.dashboardService.getStatistics().subscribe(x => {
+            // @ts-ignore
+            this.countries$ = of(x.lastTransaction);
+            // this.changeDetectorRef.detectChanges();
+        });
+    }
 }

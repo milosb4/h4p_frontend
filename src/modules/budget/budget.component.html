@@ -12,24 +12,22 @@
     </div>
 
     <sb-card class='custom-table'>div>
-        <div class="card-header"><fa-icon class="mr-1" [icon]='["fas", "table"]'></fa-icon>DataTable Example</div>
+        <div class="card-header"><fa-icon class="mr-1" [icon]='["fas", "table"]'></fa-icon>Lista transakcija</div>
         <div class="card-body"><form>
-            <div class="form-group form-inline">Full text search: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="countryService.searchTerm" /><span class="ml-3" *ngIf="countryService.loading$ | async">Loading...</span></div>
+            <div class="form-group form-inline">Pretraživanje teksta: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="countryService.searchTerm" /><span class="ml-3" *ngIf="countryService.loading$ | async">Loading...</span></div>
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col" sbSortable="name" (sort)="onSort($event)"><span>Country</span><sb-sort-icon *ngIf='sortedColumn === "name"' [direction]="sortedDirection"></sb-sort-icon></th>
-                    <th scope="col" sbSortable="area" (sort)="onSort($event)"><span>Area</span><sb-sort-icon *ngIf='sortedColumn === "area"' [direction]="sortedDirection"></sb-sort-icon></th>
-                    <th scope="col" sbSortable="population" (sort)="onSort($event)"><span>Population</span><sb-sort-icon *ngIf='sortedColumn === "population"' [direction]="sortedDirection"></sb-sort-icon></th>
+                    <th scope="col" sbSortable="id" (sort)="onSort($event)"><span>Broj transakcije</span><sb-sort-icon *ngIf='sortedColumn === "id"' [direction]="sortedDirection"></sb-sort-icon></th>
+                    <th scope="col" sbSortable="amount" (sort)="onSort($event)"><span>Količina</span><sb-sort-icon *ngIf='sortedColumn === "amount"' [direction]="sortedDirection"></sb-sort-icon></th>
+                    <th scope="col" sbSortable="date" (sort)="onSort($event)"><span>Datum</span><sb-sort-icon *ngIf='sortedColumn === "date"' [direction]="sortedDirection"></sb-sort-icon></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr *ngFor="let country of countries$ | async">
                     <th scope="row">{{ country.id }}</th>
-                    <td><img class="mr-2" [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" style="width: 20px" /><ngb-highlight [result]="country.name" [term]="countryService.searchTerm"></ngb-highlight></td>
-                    <td><ngb-highlight [result]="country.area | number" [term]="countryService.searchTerm"></ngb-highlight></td>
-                    <td><ngb-highlight [result]="country.population | number" [term]="countryService.searchTerm"></ngb-highlight></td>
+                    <td><ngb-highlight [result]="country.amount | number" [term]="countryService.searchTerm"></ngb-highlight></td>
+                    <td><ngb-highlight [result]="country.date | date" [term]="countryService.searchTerm"></ngb-highlight></td>
                 </tr>
                 </tbody>
             </table>
@@ -49,13 +47,13 @@
     <div class="row custom-charts">
         <div class="col-xl-6">
             <sb-card
-            ><div class="card-header"><fa-icon class="mr-1" [icon]='["fas", "chart-area"]'></fa-icon>Area Chart Example</div>
+            ><div class="card-header"><fa-icon class="mr-1" [icon]='["fas", "chart-area"]'></fa-icon>Potrošeni tokeni</div>
                 <div class="card-body"><canvas #myAreaChart></canvas></div
                 ></sb-card>
         </div>
         <div class="col-xl-6">
             <sb-card
-            ><div class="card-header"><fa-icon class="mr-1" [icon]='["fas", "chart-bar"]'></fa-icon>Bar Chart Example</div>
+            ><div class="card-header"><fa-icon class="mr-1" [icon]='["fas", "chart-bar"]'></fa-icon>Potrošeni tokeni (mjesečni nivo)</div>
                 <div class="card-body"><canvas #myBarChart></canvas></div
                 ></sb-card>
         </div>
@@ -64,7 +62,7 @@
     <div class="row custom-pie-chart">
         <div class="col-lg-12">
             <sb-card>
-                <div class="card-header"><fa-icon class="mr-1" [icon]='["fas", "chart-pie"]'></fa-icon>Pie Chart Example</div>
+                <div class="card-header"><fa-icon class="mr-1" [icon]='["fas", "chart-pie"]'></fa-icon>Potrošnja tokena po kategorijama </div>
                 <div class="card-body"><sb-charts-pie></sb-charts-pie></div>
             </sb-card>
         </div>

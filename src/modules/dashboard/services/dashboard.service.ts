@@ -36,4 +36,8 @@ export class DashboardService {
     getLastTransactions(): Observable<Transaction[]> {
         return this._httpClient.get<Transaction[]>(`${environment.apiUrl}/transactions`);
     }
+
+    getTransactions(): Observable<Transaction[]> {
+        return this._httpClient.get<Transaction[]>(`${environment.apiUrl}/transactions-last`);
+    }
 }

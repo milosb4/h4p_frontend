@@ -51,7 +51,7 @@ export class DashboardTablesComponent implements OnInit {
             // @ts-ignore
             this.countries$ = of(x.lastTransaction);
             debugger;
-            this.cdr.detectChanges();
+            this.changeDetectorRef.detectChanges();
         })
     }
 }

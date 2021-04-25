@@ -6,6 +6,7 @@ import { AppCommonModule } from '@common/app-common.module';
 import { BudgetComponent } from '@modules/budget/budget.component';
 import { BudgetService } from '@modules/budget/services/budget.service';
 import { ChartsModule } from '@modules/charts/charts.module';
+import { DashboardService } from '@modules/dashboard/services';
 import { NavigationModule } from '@modules/navigation/navigation.module';
 import { TablesModule } from '@modules/tables/tables.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -23,7 +24,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
         SlickCarouselModule,
         NgbModule,
     ],
-    providers: [BudgetService],
+    providers: [BudgetService, DashboardService],
     declarations: [BudgetComponent],
     exports: [BudgetComponent],
 })
