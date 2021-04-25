@@ -25,12 +25,16 @@ export class DashboardTablesComponent implements OnInit {
     constructor(
         public countryService: CountryService,
         private changeDetectorRef: ChangeDetectorRef,
-        public dash: DashboardService
+        public dash: DashboardService,
+        private cdr: ChangeDetectorRef
     ) {}
 
     ngOnInit() {
         this.countryService.pageSize = this.pageSize;
-        this.dash.getLastTransactions().subscribe(x => (this.countries$ = of(x)));
+        this.setStats();
+        // this.dash
+        //     .getLastTransactions()
+        //     .subscribe(x => (this.countries$ = of(this.lastTransactions)));
         this.total$ = this.countryService.total$;
     }
 
@@ -40,5 +44,14 @@ export class DashboardTablesComponent implements OnInit {
         this.countryService.sortColumn = column;
         this.countryService.sortDirection = direction;
         this.changeDetectorRef.detectChanges();
+    }
+
+    setStats() {
+        this.dash.getStatistics().subscribe(x => {
+            // @ts-ignore
+            this.countries$ = of(x.lastTransaction);
+            debugger;
+            this.cdr.detectChanges();
+        })
     }
 }
