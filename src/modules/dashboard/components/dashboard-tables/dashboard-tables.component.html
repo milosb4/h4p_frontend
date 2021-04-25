@@ -1,5 +1,24 @@
 <sb-card class='custom-table'>div>
-    <div class="card-header"><fa-icon class="mr-1" [icon]='["fas", "table"]'></fa-icon>DataTable Example</div>
-    <div class="card-body"><sb-ng-bootstrap-table [pageSize]="4"></sb-ng-bootstrap-table></div>
+    <div class="card-header"><fa-icon class="mr-1" [icon]='["fas", "table"]'></fa-icon>Poslednje transakcije</div>
+    <div class="card-body">
+        <form>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col" sbSortable="id" (sort)="onSort($event)"><span>Id</span><sb-sort-icon *ngIf='sortedColumn === "id"' [direction]="sortedDirection"></sb-sort-icon></th>
+                <th scope="col" sbSortable="name" (sort)="onSort($event)"><span>Amount</span><sb-sort-icon *ngIf='sortedColumn === "amount"' [direction]="sortedDirection"></sb-sort-icon></th>
+                <th scope="col" sbSortable="name" (sort)="onSort($event)"><span>Date</span><sb-sort-icon *ngIf='sortedColumn === "date"' [direction]="sortedDirection"></sb-sort-icon></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let country of countries$ | async">
+                <th scope="row">{{ country.id }}</th>
+                <td><ngb-highlight [result]="country.amount | number" [term]="countryService.searchTerm"></ngb-highlight></td>
+                <td><ngb-highlight [result]="country.date | date" [term]="countryService.searchTerm"></ngb-highlight></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+    </div>
 </sb-card>
 

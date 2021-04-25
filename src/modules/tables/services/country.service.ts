@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { debounceTime, delay, switchMap, tap } from 'rxjs/operators';
 
 interface SearchResult {
-    countries: Country[];
+    countries: any[];
     total: number;
 }
 
@@ -46,7 +46,7 @@ function matches(country: Country, term: string, pipe: PipeTransform) {
 export class CountryService {
     private _loading$ = new BehaviorSubject<boolean>(true);
     private _search$ = new Subject<void>();
-    private _countries$ = new BehaviorSubject<Country[]>([]);
+    private _countries$ = new BehaviorSubject<any[]>([]);
     private _total$ = new BehaviorSubject<number>(0);
 
     private _state: State = {

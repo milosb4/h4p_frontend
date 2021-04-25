@@ -1,11 +1,9 @@
 <div class="row">
-
-
     <div class="col-xl-3 col-md-6">
         <sb-card-view-details link="/dashboard"  background="bg-primary">
             <div class="card-body custom-card custom-card-1">
                 <h5> Broj tokena:</h5>
-                <h2> 3000</h2>
+                <h2> {{tokenNumber}}</h2>
             </div>
         </sb-card-view-details>
     </div>
@@ -13,7 +11,7 @@
         <sb-card-view-details link="/dashboard"  background="bg-primary">
             <div class="card-body custom-card custom-card-2">
                 <h5> Vrijednos tokena:</h5>
-                <h2> 20K</h2>
+                <h2> {{tokenValue}}K</h2>
             </div>
         </sb-card-view-details>
     </div>
@@ -21,7 +19,7 @@
         <sb-card-view-details link="/dashboard"  background="bg-primary">
             <div class="card-body custom-card custom-card-3">
                 <h5> Zadnji priliv tokena:</h5>
-                <h2> 20</h2>
+                <h2> {{lastTokenIncome}}</h2>
             </div>
         </sb-card-view-details>
     </div>
@@ -29,7 +27,7 @@
         <sb-card-view-details link="/dashboard"  background="bg-primary">
             <div class="card-body custom-card custom-card-4">
                 <h5> Ukupno potrošeno tokena:</h5>
-                <h2> 2000</h2>
+                <h2> {{tokenSpent}}</h2>
             </div>
         </sb-card-view-details>
     </div>
