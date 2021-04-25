@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ChangeDetectorRef  } from '@angular/core';
 import { DashboardService } from '@modules/dashboard/services';
 
 @Component({
@@ -8,19 +8,33 @@ import { DashboardService } from '@modules/dashboard/services';
     styleUrls: ['dashboard-cards.component.scss'],
 })
 export class DashboardCardsComponent implements OnInit {
-    public tokenNumber = 0;
+    public _tokenNumber = 0;
     public tokenValue = 0;
     public lastTokenIncome = 0;
     public tokenSpent = 0;
     // @ts-ignore
     public lastTransactions: any[];
 
-    constructor(private dashboardService: DashboardService) {}
+    constructor(private dashboardService: DashboardService, private cdr: ChangeDetectorRef) {
+        // this.setStats();
+    }
     ngOnInit() {
-        this.dashboardService.getTokenNumber().subscribe(x => (this.tokenNumber = x));
-        this.dashboardService.getTokensValue().subscribe(x => (this.tokenValue = x));
-        this.dashboardService.getLastIncome().subscribe(x => (this.lastTokenIncome = x));
-        this.dashboardService.getTokensSpent().subscribe(x => (this.tokenSpent = x));
-        this.dashboardService.getLastTransactions().subscribe(x => (this.lastTransactions = x));
+        this.setStats();
+    }
+
+    setStats() {
+        this.dashboardService.getStatistics().subscribe(x => {
+            console.log(x)
+            this._tokenNumber = x.tokenAmount;
+            this.tokenValue = x.tokenValue
+            this.tokenSpent = x.tokensSpent;
+            this.lastTokenIncome = x.lastIncome;
+            this.lastTransactions = x.lastTransaction;
+            this.cdr.detectChanges();
+        })
+    }
+
+    get tokenNumber() {
+        return this._tokenNumber;
     }
 }
