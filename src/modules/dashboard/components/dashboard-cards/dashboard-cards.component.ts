@@ -25,10 +25,15 @@ export class DashboardCardsComponent implements OnInit {
     setStats() {
         this.dashboardService.getStatistics().subscribe(x => {
             console.log(x)
+            // @ts-ignore
             this._tokenNumber = x.tokenAmount;
+            // @ts-ignore
             this.tokenValue = x.tokenValue
+            // @ts-ignore
             this.tokenSpent = x.tokensSpent;
+            // @ts-ignore
             this.lastTokenIncome = x.lastIncome;
+            // @ts-ignore
             this.lastTransactions = x.lastTransaction;
             this.cdr.detectChanges();
         })

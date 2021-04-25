@@ -17,6 +17,9 @@ export class DashboardService {
     getTokenNumber(): Observable<number> {
         return this._httpClient.get<number>(`${environment.apiUrl}/tokens-current`);
     }
+    getStatistics(): Observable<number> {
+        return this._httpClient.get<number>(`${environment.apiUrl}/statistics`);
+    }
 
     getTokensValue(): Observable<number> {
         return this._httpClient.get<number>(`${environment.apiUrl}/tokens-value`);
